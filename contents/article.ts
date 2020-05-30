@@ -5,9 +5,10 @@ const contents: string = `
   <p class="my-3"> Từ năm 2019, Viblo mở rộng thêm những dịch vụ mới để trở thành Viblo Platform bao gồm: <a href="https://code.viblo.asia" target="_blank" rel="noopener" class="underline"><strong>Viblo Code</strong></a> (dịch vụ về luyện tập kỹ năng coding, giải thuật), <a href="https://ctf.viblo.asia" target="_blank" rel="noopener" class="underline"><strong>Viblo CTF</strong></a> (dịch vụ về luyện tập kỹ năng coding, an toàn thông tin) và <a href="https://cv.viblo.asia" target="_blank" rel="noopener" class="underline"><strong>Viblo CV</strong></a> (dịch vụ tạo các mẫu CV chuyên nghiệp dành cho lập trình viên) với mong muốn vươn mình trở thành một nền tảng mở, đóng góp cho sự phát triển của cộng đồng IT Việt Nam.</p>
 
   <p class="my-3">
-    <a href="http://localhost:3000">Back to Home Page 1</a>
-    <a href="/#hello">Back to Home Page 2</a>
-    <a href="/">Back to Home Page 3</a>
+    <a href="http://localhost:3000">Back to Home Page 1</a> <br>
+    <a href="/#hello">Back to Home Page 2</a> <br>
+    <a href="/?search=mayfest">Back to Home Page 3</a> <br>
+    <a href="/inspire?search=mayfest#my-article">Back to Home Page 4</a> <br>
   </p>
 </div>
 `

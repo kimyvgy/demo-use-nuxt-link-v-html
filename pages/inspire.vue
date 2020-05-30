@@ -31,6 +31,43 @@ export default class Inspire extends Vue {
   get htmlContents (): string {
     return htmlContents
   }
+
+  mounted () {
+    this.forEachAnchor((element) => {
+      element.addEventListener('click', this.useVueRouter)
+    })
+  }
+
+  beforeDestroy () {
+    this.forEachAnchor((element) => {
+      element.removeEventListener('click', this.useVueRouter)
+    })
+  }
+
+  forEachAnchor (callbackfn: (value: Element, key: number, parent: NodeListOf<Element>) => void): void {
+    const anchors = this.$el.querySelectorAll('.my-article a[href]')
+
+    anchors.forEach(callbackfn)
+  }
+
+  useVueRouter (e: Event) {
+    if (e.currentTarget instanceof Element) {
+      const href = e.currentTarget.getAttribute('href') || ''
+      const parsedURL = new URL(href, window.location.origin)
+      const isNuxtLink = parsedURL.hostname === window.location.hostname
+
+      if (isNuxtLink) {
+        // Stop reload page
+        e.preventDefault()
+
+        // Use vue router
+        this.$router.push({
+          path: `${parsedURL.pathname}${parsedURL.search}`,
+          hash: parsedURL.hash
+        })
+      }
+    }
+  }
 }
 </script>
 
